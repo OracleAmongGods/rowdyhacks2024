@@ -278,7 +278,7 @@ class Button():
 pygame.init()
 pygame.font.init()
 
-
+font = pygame.font.SysFont("bitstreamverasans", 24)
 test_button = Button(text="TEST", pos=(0,0), command=gen_code_to_file) # create button and assign function
 spawn_block_button = Button(text="SPAWN", pos=(110,0), command=spawn_block) # create button and assign function
 change_block_button = Button(text="CHANGE", pos=(220,0), command=inc_block) # create button and assign function
@@ -394,6 +394,9 @@ while is_running:
     test_button.draw(screen) 
     spawn_block_button.draw(screen) 
     change_block_button.draw(screen) 
+
+    txt_spr = font.render(str(CURRENT_BLOCK_TO_SPAWN), False, (255, 255, 255))
+    screen.blit(txt_spr, (SCREEN_WIDTH-25, 5))
     
    
     # draw rect
